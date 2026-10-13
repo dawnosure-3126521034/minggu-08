@@ -1,0 +1,188 @@
+/* ===== Dasar ===== */
+:root {
+    --kertas: #f6f4ef;
+    --putih: #ffffff;
+    --tinta: #1b2a41;
+    --abu: #5b6675;
+    --garis: #d9d5ca;
+    --aksen: #0e7c7b;
+    --aksen-gelap: #095655;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.7;
+    color: var(--tinta);
+    background: var(--kertas);
+}
+
+h1, h2, h3, nav, .tag {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--aksen);
+    outline-offset: 3px;
+}
+
+/* ===== Header (mobile-first) ===== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem;
+    background: var(--tinta);
+    color: var(--putih);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+}
+
+/* Flexbox untuk menu navigasi */
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 0.5rem;
+    list-style: none;
+}
+
+.menu a {
+    display: block;
+    padding: 0.25rem 0.1rem;
+    color: #cfe9e8;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+    color: var(--putih);
+    border-bottom-color: var(--putih);
+}
+
+/* ===== Konten umum ===== */
+.tentang,
+.proyek {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.tentang p {
+    max-width: 42rem;
+    font-size: 1.05rem;
+    color: var(--abu);
+}
+
+/* ===== Grid kartu proyek: ponsel = 1 kolom ===== */
+.grid-proyek {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.kartu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-left: 6px solid var(--aksen);
+    border-radius: 4px;
+}
+
+.kartu h3 {
+    font-size: 1.1rem;
+}
+
+.kartu p {
+    flex: 1;
+    color: var(--abu);
+    font-size: 0.95rem;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--aksen-gelap);
+    background: #dcefee;
+    border-radius: 999px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #cfd6df;
+    background: var(--tinta);
+}
+
+/* ===== Tablet (min 600px): 2 kolom ===== */
+@media (min-width: 600px) {
+    .grid-proyek {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ===== Desktop (min 992px): 3 kolom, header sejajar ===== */
+@media (min-width: 992px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        text-align: left;
+    }
+
+    .menu {
+        margin-top: 0;
+        gap: 2rem;
+    }
+
+    .grid-proyek {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .tentang,
+    .proyek {
+        padding: 4rem 2rem;
+    }
+
+    html {
+        scroll-padding-top: 5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
